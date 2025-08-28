@@ -61,13 +61,15 @@ $emoji-native: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto C
 
 /* system typefaces */
 $serif: $default-serif !default;
-$sans-serif: 'Gugi', $default-sans-serif !default;
+$sans-serif: $default-sans-serif !default;
 $sans-serif-narrow: $sans-serif !default;
 $monospace: $default-monospace !default;
 
 $global-font-family: $sans-serif !default;
 $header-font-family: $sans-serif !default;
 $caption-font-family: $serif !default;
+
+//"Gugi",
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px

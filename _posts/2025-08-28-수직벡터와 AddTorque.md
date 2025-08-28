@@ -5,7 +5,7 @@ title:  "수직벡터와 AddTorque"
 
 
 
-# 수직 벡터
+## 수직 벡터
 
 ```csharp
 public void shootFunction(float Speed, Vector3 dir)
