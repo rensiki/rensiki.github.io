@@ -22,7 +22,7 @@ public void shootFunction(float Speed, Vector3 dir)
 
 그때 수직 벡터를 구하는 공식을 떠올리게 되었다. 
 
-![image.png](image.png)
+![alt text](../images/image.png)
 
 처음에는 내적이 바로 떠올랐지만, 방정식 풀이는 간단하지만 코드로 구현하는건 매우 귀찮고 비효율적일 것 같아서 기각했다.
 
