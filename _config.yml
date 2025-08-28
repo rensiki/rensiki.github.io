@@ -21,7 +21,7 @@ title                    : "Life=Game"
 title_separator          : "-"
 subtitle                 : "rensiki_blog"
 name                     : "rensiki"
-description              : "야옹"
+description              : "게임 개발자 컴공생의 개발 블로그"
 url                      : "https://rensiki.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -115,15 +115,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "rensiki"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "야옹"
+  location         : "korea"
+  email            : "rensiki66@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:rensiki66@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
