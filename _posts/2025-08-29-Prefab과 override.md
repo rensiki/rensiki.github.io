@@ -1,6 +1,13 @@
-# Prefab과 override
+---
+layout: single
+title:  "수직벡터와 AddTorque"
+---
 
-![alt text](../images/2025-08-29/image.png)
+
+
+
+## Prefab과 Override
+
 
 게임개발 팀원들과 만나서 회의를 진행하며 오브젝트들의 크기를 조절하는 시간을 가진 적이 있었다.
 <br>
