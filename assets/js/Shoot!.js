@@ -1,8 +1,24 @@
-<canvas id="gameCanvas"></canvas>
-
-<script>
 (() => {
-  const canvas = document.getElementById("gameCanvas");
+  // 1. 캔버스가 없으면 동적으로 생성
+  let canvas = document.getElementById("gameCanvas");
+  if (!canvas) {
+    canvas = document.createElement("canvas");
+    canvas.id = "gameCanvas";
+    document.body.appendChild(canvas);
+  }
+  // 2. 스타일도 JS에서 추가
+  const style = document.createElement('style');
+  style.textContent = `
+    #gameCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  `;
+  document.head.appendChild(style);
+
   const ctx = canvas.getContext("2d");
 
   // 캔버스 크기
@@ -32,19 +48,21 @@
   let combo = 0;
   let lastScoreTime = 0;
   const comboInterval = 2500; // ms, 이 시간 내에 또 득점하면 연속
-// 점수/콤보 색상 배열
-    const colors = [
-      "white",      // 0~9
-      "yellow",     // 10~19
-      "lime",       // 20~29
-      "cyan",       // 30~39
-      "orange",     // 40~49
-      "magenta",    // 50~59
-      "red",        // 60~69
-      "blue",       // 70~79
-      "gold",       // 80~89
-      "deepskyblue" // 90~
-    ];
+
+  // 점수/콤보 색상 배열
+  const colors = [
+    "white",      // 0~9
+    "yellow",     // 10~19
+    "lime",       // 20~29
+    "cyan",       // 30~39
+    "orange",     // 40~49
+    "magenta",    // 50~59
+    "red",        // 60~69
+    "blue",       // 70~79
+    "gold",       // 80~89
+    "deepskyblue" // 90~
+  ];
+
   // 키 입력 상태
   const keys = {};
 
@@ -112,13 +130,14 @@
 
   setInterval(spawnEnemy, 2000);
 
+  // 색상 선택 함수
+  function getColor(val) {
+    return colors[Math.min(Math.floor(val / 10), colors.length - 1)];
+  }
+
   // 게임 루프
   function animate() {
     requestAnimationFrame(animate);
-    /*
-    ctx.fillStyle = "rgba(0,0,0,0.3)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);*/
-    //배경 투명색으로 변경
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     updatePlayer();
@@ -200,25 +219,27 @@
       });
     });
 
-    // 점수 및 시간, 연속 득점, 최고 기록 표시
-    ctx.font = "20px Arial";
-    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+    // 화면 크기에 따라 UI 폰트 크기와 간격 동적 조정 (최대 폰트 크기 제한)
+    const baseFontSize = Math.max(10, Math.min(Math.floor(canvas.width / 50), 20)); // 최대 20px
+    const baseGap = Math.floor(baseFontSize * 1.2);
+
+    ctx.font = `${baseFontSize}px Arial`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    const centerX = canvas.width / 2;
+    let uiY = baseFontSize * 0.7;
+
     ctx.fillStyle = "white";
-    ctx.fillText(`Time: ${elapsed}s`, 20, 20);
+    ctx.fillText(`Time: ${((Date.now() - startTime) / 1000).toFixed(1)}s`, centerX, uiY);
 
-    // 색상 선택 함수
-    function getColor(val) {
-      return colors[Math.min(Math.floor(val / 10), colors.length - 1)];
-    }
-
-    // Score 색상
     ctx.fillStyle = getColor(score);
-    ctx.fillText(`Score: ${score} (best=${bestScore})`, 20, 40);
+    ctx.fillText(`Score: ${score} (Best: ${bestScore})`, centerX, uiY + baseGap);
 
-    // Combo 색상
     ctx.fillStyle = getColor(combo);
-    ctx.fillText(`Combo: ${combo} (best=${bestCombo})`, 20, 60);
+    ctx.fillText(`Combo: ${combo} (Best: ${bestCombo})`, centerX, uiY + baseGap * 2);
 
+    ctx.textAlign = "start";
+    ctx.textBaseline = "alphabetic";
   }
 
   animate();
@@ -232,14 +253,3 @@
     player.y = canvas.height / 2;
   });
 })();
-</script>
-
-<style>
-#gameCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999; /* 블로그 UI보다 위에 표시 */
-  pointer-events: none; /* 블로그 클릭 막지 않음 */
-}
-</style>

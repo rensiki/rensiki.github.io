@@ -1,0 +1,16 @@
+<script>
+    //console.log("shoot_game_enabled 값을 true로 설정합니다.");
+    localStorage.setItem('shoot_game_enabled', 'false');//임시 false
+
+    const enabled = localStorage.getItem('shoot_game_enabled');
+    console.log("shoot_game_enabled 값:", enabled);
+
+    if (enabled === 'true') {
+        console.log("shoot_game_enabled가 'true'입니다. 게임 스크립트를 불러옵니다.");
+        const script = document.createElement('script');
+        script.src = '/assets/js/Shoot!.js';
+        document.body.appendChild(script);
+    } else {
+        console.warn("shoot_game_enabled가 'true'가 아니어서 게임 스크립트를 불러오지 않습니다.");
+    }
+</script>
