@@ -121,9 +121,6 @@ author:
   #location         : 
   email            : "rensiki66@gmail.com"
   links:
-    - label: "Start Game in Blog!"
-      icon: "fas fa-fw fa-play-circle"
-      url: "https://rensiki.github.io/_posts/2025-08-30-StartGameInBlog!/"
 
 
     - label: "GitHub"
@@ -301,16 +298,16 @@ tag_archive:
   type: liquid
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
 
 
 # HTML Compression

@@ -1,6 +1,10 @@
 ---
 layout: single
 title:  "수직벡터와 AddTorque"
+categories: Dev
+tag: [game, coding, c#, unity, math]
+sidebar:
+    - nav: main
 ---
 
 
@@ -28,8 +32,7 @@ public void shootFunction(float Speed, Vector3 dir)
 그러고 나니 회전 속도를 주는 코드의 회전 축을 추가로 구해줘야 한다는 것을 깨닫게 되었다.(기존 코드에서는 방향이 고정되어 있으니 회전축도 고정되어 있었다)
 
 그때 수직 벡터를 구하는 공식을 떠올리게 되었다. 
-
-![alt text](../images/image.png)
+![alt text](../images/vec.png)
 
 처음에는 내적이 바로 떠올랐지만, 방정식 풀이는 간단하지만 코드로 구현하는건 매우 귀찮고 비효율적일 것 같아서 기각했다.
 
