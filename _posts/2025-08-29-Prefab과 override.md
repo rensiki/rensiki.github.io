@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "수직벡터와 AddTorque"
+title:  "Prefab과 Override"
 ---
 
 

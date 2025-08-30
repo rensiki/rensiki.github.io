@@ -25,6 +25,9 @@
   let score = 0;
   let startTime = Date.now(); // 게임 시작 시간
 
+  let bestScore = Number(localStorage.getItem('shoot_best_score') || 0);
+  let bestCombo = Number(localStorage.getItem('shoot_best_combo') || 0);
+
   // 연속 득점 관련 변수
   let combo = 0;
   let lastScoreTime = 0;
@@ -208,13 +211,14 @@
       return colors[Math.min(Math.floor(val / 10), colors.length - 1)];
     }
 
-    // Score 색상 및 최고 점수 표시
+    // Score 색상
     ctx.fillStyle = getColor(score);
-    ctx.fillText(`Score: ${score}  (Best: ${bestScore})`, 20, 40);
+    ctx.fillText(`Score: ${score} (best=${bestScore})`, 20, 40);
 
-    // Combo 색상 및 최고 콤보 표시
+    // Combo 색상
     ctx.fillStyle = getColor(combo);
-    ctx.fillText(`Combo: ${combo}  (Best: ${bestCombo})`, 20, 60);
+    ctx.fillText(`Combo: ${combo} (best=${bestCombo})`, 20, 60);
+
   }
 
   animate();
