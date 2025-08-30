@@ -76,6 +76,12 @@
       shootBullet();
       e.preventDefault();
     }
+
+    // 사운드 재생
+    try {
+      shootSound.currentTime = 0;
+      shootSound.play();
+    } catch (e) { console.error(e); }
   });
   window.addEventListener("keyup", e => {
     keys[e.key.toLowerCase()] = false;
@@ -113,11 +119,6 @@
       radius: 5,
       velocity
     });
-    // 사운드 재생
-    try {
-      shootSound.currentTime = 0;
-      shootSound.play();
-    } catch (e) {}
   }
 
   // 적 스폰 (주기적으로 화면 외곽에서 등장)
