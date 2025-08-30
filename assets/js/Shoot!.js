@@ -49,6 +49,9 @@
   let lastScoreTime = 0;
   const comboInterval = 2500; // ms, 이 시간 내에 또 득점하면 연속
 
+  let shootSound = new Audio("/assets/sounds/Shoot!_playerAttack.mp3");
+  let hitSound = new Audio("/assets/sounds/Shoot!_enemyHit.mp3");
+
   // 점수/콤보 색상 배열
   const colors = [
     "white",      // 0~9
@@ -110,6 +113,11 @@
       radius: 5,
       velocity
     });
+    // 사운드 재생
+    try {
+      shootSound.currentTime = 0;
+      shootSound.play();
+    } catch (e) {}
   }
 
   // 적 스폰 (주기적으로 화면 외곽에서 등장)
@@ -215,6 +223,12 @@
             bestCombo = combo;
             localStorage.setItem('shoot_best_combo', bestCombo);
           }
+
+          // 적이 맞았을 때 사운드 재생
+          try {
+            hitSound.currentTime = 0;
+            hitSound.play();
+          } catch (e) {}
         }
       });
     });
