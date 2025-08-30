@@ -38,23 +38,23 @@ Prefab의 instance들은 기본적으로 프로퍼티의 값을 공유한다.
 <br>
 <br>
 
-![alt text](<../images/2025-08-29/image 1.png>)
 
-prefab이 확실하게 학습해두지 않으면 헷갈리는 이유가 바로 이 부분인 것 같다. prefab의 instance라고 해서 모든 값이 공유되는 것이 아니라는 점이다.
+prefab을 확실하게 학습해두지 않으면 헷갈리는 이유는 prefab의 instance라고 해서 모든 값이 공유되는 것이 아니라는 점 때문인 것 같다.
+![alt text](</images/2025-08-29/image 1.png>)
 <br>
 <br>
 
-![alt text](<../images/2025-08-29/image 2.png>)
 
 
 오버라이드된 값들에는 파란색으로 표시를 해준다.
+![alt text](</images/2025-08-29/image 2.png>)
 <br>
 <br>
 
 
-![alt text](<../images/2025-08-29/image 3.png>)
 
 또한 alignment로 설정된 값도 prefab과 값을 공유하지 않는다.
+![alt text](</images/2025-08-29/image 3.png>)
 <br>
 <br>
 
@@ -66,27 +66,27 @@ prefab이 확실하게 학습해두지 않으면 헷갈리는 이유가 바로 �
 
 1: 모두 적용
 
-![alt text](<../images/2025-08-29/image 4.png>)
+![alt text](</images/2025-08-29/image 4.png>)
 <br>
 <br>
 <br>
 
 2: 변경 사항을 클릭해가며 비교해가며 변경
 
-![alt text](<../images/2025-08-29/image 5.png>)
+![alt text](</images/2025-08-29/image 5.png>)
 <br>
 <br>
 <br>
 
 3: 컴포넌트 개별 접근
 
-![alt text](<../images/2025-08-29/image 6.png>)
+![alt text](</images/2025-08-29/image 6.png>)
 <br>
 <br>
 
 여기서 보면 Table에 오버라이드 하는 것과 Vase에 직접 적용하는 것 2가지로 나뉘는 모습을 볼 수 있다. (revert를 누르면 변경사항을 되돌릴 수 있다)
 
-![alt text](<../images/2025-08-29/image 7.png>)
+![alt text](</images/2025-08-29/image 7.png>)
 
 이 기능은 네스티드 프리팹 구조일 때 사용된다. 즉, 위의 경우 Table에 Vase 프리팹이 들어있는 구조인 것이다.
 <br>

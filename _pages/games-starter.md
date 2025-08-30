@@ -7,8 +7,8 @@ sidebar_main: true
 ---
 {% include js-loader.html %}
 
-게임을 시작하면, 글을 읽으면서 게임을 할 수 있습니다!
-글이 너무 눈에 안들어올 때 게임 배경화면으로 즐기자는 마인드
+게임을 시작하면, 블로그 글을 읽으면서 게임을 할 수 있습니다!
+글이 너무 눈에 안들어올 때 게임 배경화면으로써 즐기자는 마인드
 
 <div style="margin:1em 0;">
   <label>
@@ -22,6 +22,8 @@ sidebar_main: true
       onclick="localStorage.setItem('shoot_game_enabled','true'); alert('Shoot 게임이 활성화되었습니다! 새로고침하면 모든 페이지에 적용됩니다.');">
     Shoot! 게임 시작
     </button>
+    <br>
+    [Shoot!] wasd: player move, spacebar: shoot. 적을 잡아서 점수를 올리는 간단한 슈팅게임입니다. 
   </label>
 </div>
 
