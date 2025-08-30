@@ -6,6 +6,7 @@ tag: [game, coding, c#, unity, math]
 sidebar:
     - nav: main
 ---
+{% include js-loader.html %}
 
 
 
@@ -33,7 +34,6 @@ public void shootFunction(float Speed, Vector3 dir)
 
 그때 수직 벡터를 구하는 공식을 떠올리게 되었다. 
 ![alt text](../images/vec.png)
-
 처음에는 내적이 바로 떠올랐지만, 방정식 풀이는 간단하지만 코드로 구현하는건 매우 귀찮고 비효율적일 것 같아서 기각했다.
 
 그래서 결국  a*b = 0이면 두 벡터는 수직이라는 성질을 활용하였다.

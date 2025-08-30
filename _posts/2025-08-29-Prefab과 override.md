@@ -1,13 +1,13 @@
 ---
 layout: single
 title:  "Prefab과 Override"
-toc: true
 categories: Dev
 tag: [game, unity]
 sidebar:
     - nav: main
 ---
 
+{% include js-loader.html %}
 
 
 
