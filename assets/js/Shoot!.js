@@ -49,8 +49,24 @@
   let lastScoreTime = 0;
   const comboInterval = 2500; // ms, 이 시간 내에 또 득점하면 연속
 
-  let shootSound = new Audio("/assets/sounds/Shoot!_playerAttack.mp3");
-  let hitSound = new Audio("/assets/sounds/Shoot!_enemyHit.mp3");
+  // shootSound, hitSound 생성 및 디버깅용 로깅
+  let shootSoundPath = "/assets/sounds/Shoot_playerAttack.mp3";
+  let hitSoundPath = "/assets/sounds/Shoot_enemyHit.mp3";
+  let shootSound, hitSound;
+
+  function checkAudio(path, label) {
+    const audio = new Audio(path);
+    audio.addEventListener('canplaythrough', () => {
+      console.log(`[${label}] canplaythrough: 오디오를 정상적으로 재생할 수 있습니다.`, path);
+    });
+    audio.addEventListener('error', (e) => {
+      console.error(`[${label}] 오디오 로드 실패:`, path, e);
+    });
+    return audio;
+  }
+
+  shootSound = checkAudio(shootSoundPath, "shootSound");
+  hitSound = checkAudio(hitSoundPath, "hitSound");
 
   // 점수/콤보 색상 배열
   const colors = [
@@ -76,12 +92,6 @@
       shootBullet();
       e.preventDefault();
     }
-
-    // 사운드 재생
-    try {
-      shootSound.currentTime = 0;
-      shootSound.play();
-    } catch (e) { console.error(e); }
   });
   window.addEventListener("keyup", e => {
     keys[e.key.toLowerCase()] = false;
@@ -119,6 +129,22 @@
       radius: 5,
       velocity
     });
+    // 사운드 재생 (디버깅)
+    try {
+      shootSound.currentTime = 0;
+      let playPromise = shootSound.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("[shootSound] play() 성공");
+          })
+          .catch(e => {
+            console.error("[shootSound] play() 실패:", e);
+          });
+      }
+    } catch (e) {
+      console.error("[shootSound] 예외 발생:", e);
+    }
   }
 
   // 적 스폰 (주기적으로 화면 외곽에서 등장)
